@@ -25,7 +25,8 @@ export abstract class Db {
     return this.db!.all(sql, ...params);
   }
 
-  static async run(sql: string, params: unknown[] = []) {
-    await this.db!.run(sql, params);
+  static async run(sql: string, params: unknown[] = []): Promise<number> {
+    const result = await this.db!.run(sql, params);
+    return result.lastID!;
   }
 }

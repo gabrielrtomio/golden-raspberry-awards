@@ -11,9 +11,9 @@ export default async function migrate() {
   try {
     const migrationFiles = readdirSync(join(__dirname, "migrations"));
     migrationFiles.sort((a, b) => a.localeCompare(b));
-    await Db.exec(`CREATE TABLE IF NOT EXISTS migrations (name TEXT)`);
+    await Db.exec("CREATE TABLE IF NOT EXISTS migrations (name TEXT)");
     const migrations = await Db.query<MigrationSchema[]>(
-      `SELECT * FROM migrations`
+      "SELECT * FROM migrations"
     );
     for (const migrationFile of migrationFiles) {
       const [migrationName] = migrationFile.split(".");
@@ -25,7 +25,7 @@ export default async function migrate() {
         const path = join(__dirname, "migrations", migrationFile);
         const migrationModule = await import(path);
         await migrationModule.up();
-        await Db.run(`INSERT INTO migrations (name) VALUES (?)`, [
+        await Db.run("INSERT INTO migrations (name) VALUES (?)", [
           migrationName,
         ]);
         console.log(`Migration executed ${migrationName}`);

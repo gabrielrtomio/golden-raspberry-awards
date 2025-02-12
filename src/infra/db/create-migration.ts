@@ -9,6 +9,7 @@ function createMigration() {
   fs.writeFileSync(
     path.join(__dirname, "migrations", filename),
     [
+      'import { Db } from "../Db";',
       "",
       "export async function up() {}",
       "",
