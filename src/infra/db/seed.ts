@@ -1,8 +1,8 @@
 import fs from "fs";
 import { join } from "path";
-import { AddMovieBySeed } from "@/usecases/AddMovieBySeed";
-import { AddStudio } from "@/usecases/AddStudio";
-import { AddProducer } from "@/usecases/AddProducer";
+import { AddMovieBySeed } from "@/use-cases/AddMovieBySeed";
+import { AddStudio } from "@/use-cases/AddStudio";
+import { AddProducer } from "@/use-cases/AddProducer";
 import { clearDb } from "./clear-db";
 
 const lines = fs
