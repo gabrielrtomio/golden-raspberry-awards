@@ -6,7 +6,7 @@ import { AddProducer } from "@/use-cases/AddProducer";
 import { clearDb } from "./clear-db";
 
 const lines = fs
-  .readFileSync(join(__dirname, "movielist_little.csv"), "utf-8")
+  .readFileSync(join(__dirname, "movielist.csv"), "utf-8")
   .split("\n")
   .filter((line) => !!line.trim())
   .slice(1)

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "ts-node src/infra/web/server.ts",
+    "test": "node --test --require ts-node/register ./tests/**/*test.ts",
     "mig:create": "ts-node src/infra/db/create-migration.ts"
   },
   "keywords": [],
@@ -12,6 +13,8 @@
   "devDependencies": {
     "@types/express": "^5.0.0",
     "@types/node": "^22.13.1",
+    "@types/supertest": "^6.0.2",
+    "supertest": "^7.0.0",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.7.3"
