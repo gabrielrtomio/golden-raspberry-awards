@@ -23,3 +23,7 @@ Para executar os testes.
 ```console
 $ npm test
 ```
+
+# Nodejs
+
+A versão do Nodejs uitilizada neste projeto é 23.7.0
