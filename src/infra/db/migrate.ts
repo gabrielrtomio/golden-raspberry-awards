@@ -28,7 +28,7 @@ export default async function migrate() {
         await Db.run("INSERT INTO migrations (name) VALUES (?)", [
           migrationName,
         ]);
-        console.log(`Migration executed ${migrationName}`);
+        console.log(`💽 Migration executed ${migrationName}`);
       }
     }
   } catch (e) {

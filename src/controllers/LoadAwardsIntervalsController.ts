@@ -40,8 +40,9 @@ export class LoadAwardsIntervalsController implements Controller<void, Res> {
       )
     `);
     awardsIntervals.sort((a, b) => a.interval - b.interval);
-    const minInterval = awardsIntervals[0].interval;
-    const maxInterval = awardsIntervals[awardsIntervals.length - 1].interval;
+    const minInterval = awardsIntervals[0]?.interval ?? 0;
+    const maxInterval =
+      awardsIntervals[awardsIntervals.length - 1]?.interval ?? 0;
     return {
       min: awardsIntervals
         .filter((awardInterval) => awardInterval.interval === minInterval)

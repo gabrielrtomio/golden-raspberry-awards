@@ -8,7 +8,7 @@ export abstract class Db {
   static async connect() {
     if (!this.db) {
       this.db = await open({
-        filename: join(__dirname, "database.db"),
+        filename: ":memory:",
         driver: sqlite3.Database,
       });
     }

@@ -10,18 +10,4 @@ export class Studio {
     ]);
     this.id = id;
   }
-
-  static async loadByNames(names: string[]): Promise<Studio[]> {
-    const rows = await Db.query<StudioTable[]>(
-      `SELECT rowid, name FROM studios WHERE LOWER(name) IN (${names.map(
-        (studio) => `'${studio.toLowerCase()}'`
-      )})`
-    );
-    return rows.map((row) => new Studio(row.name, row.rowid));
-  }
 }
-
-type StudioTable = {
-  rowid: number;
-  name: string;
-};

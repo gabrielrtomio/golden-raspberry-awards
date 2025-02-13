@@ -5,14 +5,14 @@ import seed from "@/infra/db/seed";
 import { before, describe, it } from "node:test";
 import api from "@/infra/web/api";
 import { deepEqual } from "assert";
+import { join } from "path";
 
 before(async () => {
-  //passar o path da database no connect
   await Db.connect();
   await migrate();
-  //passar o path do csv no seed
-  await seed();
+  await seed(join(__dirname, "..", "seed-test.csv"));
 });
+
 describe("Load Awards Intervals", () => {
   it("Deve retornar Joel Silver no mínimo e Matheuw Vaughn no máximo", async () => {
     const response = await request(api).get("/api/awards/intervals").query({});

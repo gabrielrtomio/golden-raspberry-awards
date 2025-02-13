@@ -1,3 +1,3 @@
-export interface UseCase<T> {
-  execute(params: T): Promise<void>;
+export interface UseCase<P, R = void> {
+  execute(params: P): Promise<R>;
 }

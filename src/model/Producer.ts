@@ -10,18 +10,4 @@ export class Producer {
     ]);
     this.id = id;
   }
-
-  static async loadByNames(names: string[]): Promise<Producer[]> {
-    const rows = await Db.query<ProducerTable[]>(
-      `SELECT rowid, name FROM producers WHERE LOWER(name) IN (${names.map(
-        (producer) => `'${producer.toLowerCase()}'`
-      )})`
-    );
-    return rows.map((row) => new Producer(row.name, row.rowid));
-  }
 }
-
-type ProducerTable = {
-  rowid: number;
-  name: string;
-};
