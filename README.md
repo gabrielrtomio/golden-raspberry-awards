@@ -6,6 +6,12 @@ Inicei o projeto pela modelagem de dados, e pela população dos dados ao inicia
 
 Para alterar os dados de população ao iniciar aplicação, é preciso substituir o arquivo **seed.csv** na raiz deste projeto.
 
+# Preparação do ambiente
+
+```console
+$ npm install
+```
+
 # Servidor
 
 Para iniciar o servidor.
